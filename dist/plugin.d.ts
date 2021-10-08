@@ -62,6 +62,7 @@ export interface SpotifyTrack {
     artists: Artist[];
     name: string;
     duration_ms: number;
+    images: string[];
 }
 export interface SearchResult {
     exception?: {

@@ -68,7 +68,7 @@ class Spotify extends erela_js_1.Plugin {
         manager.search = this.search.bind(this);
     }
     makeRequest(endpoint, modify = () => void 0) {
-        const req = petitio_1.default(`${BASE_URL}${/^\//.test(endpoint) ? endpoint : `/${endpoint}`}`)
+        const req = (0, petitio_1.default)(`${BASE_URL}${/^\//.test(endpoint) ? endpoint : `/${endpoint}`}`)
             .header("Authorization", this.token);
         modify(req);
         return req.json();
@@ -153,7 +153,7 @@ class Spotify extends erela_js_1.Plugin {
         };
     }
     async renewToken() {
-        const { access_token, expires_in } = await petitio_1.default("https://accounts.spotify.com/api/token", "POST")
+        const { access_token, expires_in } = await (0, petitio_1.default)("https://accounts.spotify.com/api/token", "POST")
             .query("grant_type", "client_credentials")
             .header("Authorization", `Basic ${this.authorization}`)
             .header("Content-Type", "application/x-www-form-urlencoded")
